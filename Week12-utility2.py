@@ -46,3 +46,12 @@ def Union(A, B):
             world_list.append(i)
     return world_list
 
+def Intersection(list1, list2):
+    world_list = []
+    for x in list1:
+        if (not x in world_list) and (x in list2):
+            for i in range(min(list1.count(x), list2.count(x))):
+                world_list.append(x)
+    return world_list
+
+
