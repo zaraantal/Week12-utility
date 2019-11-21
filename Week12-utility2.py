@@ -3,19 +3,19 @@
 #Week 12 - Part A
 
 def PrintOutput(word):
-    PrintOutput(word)
+    print(word)
 
 def LoadFile(file):
-    list1 = []
-    my_file = open(filename)
+    contents = []
+    my_file = open(file)
     for line in my_file:
-        list1.append(line.strip())
+        contents.append(line.strip())
     my_file.close()
-    return list1
+    return contents
 
-def UpdateString(string1,string2,index):
-    if(index>=0 and index<len(string1)):
-        string1 = string1[:index] + string2 + string1[index+1:]
+def UpdateString(string1, string2, plc):
+    if plc < len(string1):
+        string1 = string1[:plc] + string2 + string1[plc+1:]
     return string1
 
 def FindWordCount(list1, string):
@@ -25,16 +25,16 @@ def FindWordCount(list1, string):
             count = count + 1
     return count
 
-def ScoreFinder(player_names, player_scores, player_to_find):
-    scores = -1
-    for i in range(len(player_names)):
-        if(player_names[i].lower() == player_to_find.lower()):
-            scores = player_scores[i]
+def ScoreFinder(players, scores, find):
+    score = -1
+    for i in range(len(players)):
+        if(players[i].lower == find.lower()):
+            score = scores[i]
             break
-    if(player_scores == -1):
+    if scores == -1:
         print("player not found")
     else:
-        print(player_to_find,"got a score of",score)
+        print(find, "got a score of", score)
 
 def Union(A, B):
     world_list = []
@@ -46,15 +46,15 @@ def Union(A, B):
             world_list.append(i)
     return world_list
 
-def Intersection(list1, list2):
+def Intersection(A, B):
     world_list = []
-    for x in list1:
-        if (not x in world_list) and (x in list2):
-            for i in range(min(list1.count(x), list2.count(x))):
+    for x in A:
+        if (not x in world_list) and (x in B):
+            for i in range(min(A.count(x), B.count(x))):
                 world_list.append(x)
     return world_list
 
-def NotIn(list1,list2):
+def NotIn(list1, list2):
     world_list = []
     for i in list1:
         if i not in list2:
