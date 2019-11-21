@@ -17,3 +17,10 @@ def UpdateString(string1,string2,index):
     if(index>=0 and index<len(string1)):
         string1 = string1[:index] + string2 + string1[index+1:]
     return string1
+
+def FindWordCount(list1, string):
+    count = 0
+    for i in list1:
+        if string in i:
+            count = count + 1
+    return count
