@@ -36,3 +36,13 @@ def ScoreFinder(player_names, player_scores, player_to_find):
     else:
         print(player_to_find,"got a score of",score)
 
+def Union(A, B):
+    world_list = []
+    for i in A:
+        if i not in world_list:
+            world_list.append(i)
+    for i in B:
+        if i not in world_list:
+            world_list.append(i)
+    return world_list
+
